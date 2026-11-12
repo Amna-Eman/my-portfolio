@@ -1,0 +1,783 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Syeda Amna Eman | Portfolio</title>
+
+<style>
+:root {
+    --bg: #212121;
+    --panel: #262626;
+    --card: #303030;
+    --green: #10a37f;
+    --text: #eeeeee;
+    --muted: #aaaaaa;
+    --border: #414141;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: Arial, sans-serif;
+    line-height: 1.7;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 16px 7%;
+    background: rgba(33,33,33,.97);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--green);
+}
+
+nav {
+    display: flex;
+    gap: 19px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 13px;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: var(--green);
+}
+
+section {
+    padding: 95px 9%;
+    scroll-margin-top: 65px;
+}
+
+.heading {
+    text-align: center;
+    font-size: 34px;
+    margin-bottom: 40px;
+}
+
+.heading span,
+.hero h1 span {
+    color: var(--green);
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 120px;
+}
+
+.tag {
+    color: var(--green);
+    letter-spacing: 3px;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    font-size: clamp(36px, 6vw, 65px);
+    line-height: 1.2;
+    margin: 20px 0;
+}
+
+.hero p {
+    max-width: 750px;
+    color: var(--muted);
+    font-size: 17px;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 28px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 11px 23px;
+    background: var(--green);
+    color: white;
+    border-radius: 7px;
+    text-decoration: none;
+    border: 1px solid var(--green);
+    transition: .3s;
+    font-size: 14px;
+}
+
+.btn:hover {
+    background: #0b8c6b;
+    transform: translateY(-3px);
+}
+
+.outline {
+    background: transparent;
+    color: var(--green);
+}
+
+.about,
+.contact,
+.alt {
+    background: var(--panel);
+}
+
+.about-text {
+    color: var(--muted);
+    max-width: 850px;
+    margin: auto;
+    text-align: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
+}
+
+.card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 25px;
+    border-radius: 12px;
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--green);
+}
+
+.card h3 {
+    color: var(--green);
+    margin: 12px 0;
+}
+
+.card p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.type {
+    color: var(--green);
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.card .btn {
+    margin-top: 17px;
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+}
+
+.skills-list {
+    max-width: 750px;
+    margin: auto;
+}
+
+.skill {
+    margin-bottom: 20px;
+}
+
+.skill-title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 7px;
+}
+
+.skill-title span {
+    color: var(--muted);
+}
+
+.bar {
+    height: 7px;
+    background: #444;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.fill {
+    height: 100%;
+    background: var(--green);
+}
+
+/* Achievements */
+
+.achievement {
+    background: var(--card);
+    padding: 22px;
+    border-left: 4px solid var(--green);
+    margin-bottom: 17px;
+    border-radius: 8px;
+}
+
+.achievement h3 {
+    color: var(--green);
+}
+
+/* Contact */
+
+.contact-info {
+    max-width: 650px;
+    margin: auto;
+    display: grid;
+    gap: 15px;
+}
+
+.contact-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 17px;
+    border-radius: 9px;
+}
+
+.contact-item strong {
+    color: var(--green);
+}
+
+.contact-item a {
+    color: #ddd;
+    text-decoration: none;
+}
+
+.contact-item a:hover {
+    color: var(--green);
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #888;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+}
+
+footer span {
+    color: var(--green);
+}
+
+@media(max-width:750px) {
+    header {
+        flex-direction: column;
+        gap: 12px;
+        padding: 14px;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    section {
+        padding: 80px 6%;
+    }
+
+    .heading {
+        font-size: 28px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<header>
+    <div class="logo">Amna.dev</div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#dashboard">Dashboards</a>
+        <a href="#courses">Courses</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+
+
+<!-- HOME -->
+
+
+
+<!-- PROFILE PICTURE HTML -->
+
+<div class="profile-container">
+    <img src="image/Screenshot 2026-11-05 122037.png"
+         alt="Syeda Amna Eman Profile Picture"
+         class="profile-pic">
+</div>
+
+
+<!-- PROFILE PICTURE CSS -->
+ <style>
+ .profile-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.profile-pic {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #10a37f;
+    box-shadow: 0 0 20px rgba(16, 163, 127, 0.3);
+}
+</style>
+<section class="hero" id="home">
+
+    <div class="tag">Computer Science Portfolio</div>
+
+    <h1>Hello, I'm <span>Syeda Amna Eman</span></h1>
+
+    <p>
+        Final-Year Computer Science Student | AI Enthusiast |
+        Python & C++ Programmer | Web Developer |
+        Business Intelligence Learner
+    </p>
+
+    <div class="buttons">
+        <a href="#projects" class="btn">Explore My Work</a>
+        <a href="#contact" class="btn outline">Contact Me</a>
+    </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+    <h2 class="heading">About <span>Me</span></h2>
+
+    <p class="about-text">
+        I am Syeda Amna Eman, a Computer Science student
+        currently in my 7th semester.
+
+        I am passionate about Artificial Intelligence,
+        programming, web development and Business Intelligence.
+
+        I have worked on AI-powered projects, developed websites
+        and created interactive dashboards for data visualization.
+
+        I enjoy learning new technologies and transforming
+        ideas into practical digital solutions.
+
+        My goal is to grow as a technology professional
+        and contribute to innovative projects.
+    </p>
+
+</section>
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+    <h2 class="heading">Technical <span>Skills</span></h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3>Python</h3>
+            <p>Programming and application development.</p>
+        </div>
+
+        <div class="card">
+            <h3>HTML</h3>
+            <p>Website structure and development.</p>
+        </div>
+
+        <div class="card">
+            <h3>C++</h3>
+            <p>Programming fundamentals and problem solving.</p>
+        </div>
+
+        <div class="card">
+            <h3>Web Development</h3>
+            <p>Building and developing websites.</p>
+        </div>
+
+        <div class="card">
+            <h3>Artificial Intelligence</h3>
+            <p>AI tools, AI applications and prompt engineering.</p>
+        </div>
+
+        <div class="card">
+            <h3>Business Intelligence</h3>
+            <p>Power BI dashboards, data visualization and reporting.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section class="alt" id="projects">
+
+    <h2 class="heading">My <span>Projects</span></h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3>FileFlow AI</h3>
+            <div class="type">Team Project</div>
+            <p>
+                An AI-powered file management and processing
+                application developed collaboratively with
+                team members.
+            </p>
+            <a href="https://fileflow-ai.streamlit.app/"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="btn">View Project →</a>
+        </div>
+
+        <div class="card">
+            <h3>AuraRing</h3>
+            <div class="type">Individual Project</div>
+            <p>
+                An AI-powered smart ring product concept
+                developed through market research, branding,
+                AI visuals and product launch planning.
+            </p>
+            <a href="C:\Users\ayat4\OneDx"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="btn">View Project →</a>
+        </div>
+
+        <div class="card">
+            <h3>Paradox Engine</h3>
+            <div class="type">Team Project</div>
+            <p>A team-based AI project developed to solve complex problems using intelligent AI-powered solutions.
+            </p>
+            <a href="https://github.com/SanaMalik4/paradox-engine"
+    target="_blank"
+   rel="noopener noreferrer"
+   class="btn">View Project →</a>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- BUSINESS INTELLIGENCE DASHBOARDS -->
+
+<section id="dashboard">
+
+    <h2 class="heading">
+        My <span>BI Dashboards</span>
+    </h2>
+
+    <p style="text-align:center;color:#aaa;margin-bottom:30px;">
+        A collection of my Business Intelligence and
+        data visualization work.
+    </p>
+
+    <div class="grid">
+
+        <!-- DASHBOARD 1 -->
+
+        <div class="card">
+
+            <img src="image/Sales Dashboard.png"
+                 alt="Sales Dashboard Screenshot">
+
+            <h3>Sales Performance Dashboard</h3>
+
+            <div class="type">Power BI Dashboard</div>
+
+            <p>
+                An interactive sales dashboard showing
+                key performance indicators, sales trends
+                and business performance.
+            </p>
+
+            <a href="c:\Users\ayat4\OneDrive\Desktop\Final project.pbix"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="btn">View Dashboard →</a>
+
+        </div>
+
+        <!-- DASHBOARD 2 -->
+
+        <div class="card">
+
+            <img src="image/Business Analytics.png"
+                 alt="Business Dashboard Screenshot">
+
+            <h3>Business Analytics Dashboard</h3>
+
+            <div class="type">Power BI Dashboard</div>
+
+            <p>
+                A data visualization project designed
+                to explore business information and
+                present useful insights.
+            </p>
+
+            <a href="YOUR_DASHBOARD_2_LINK"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="btn">View Dashboard →</a>
+
+        </div>
+
+        
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- COURSES & CERTIFICATIONS SECTION -->
+
+<section class="about" id="courses">
+
+    <h2 class="heading">
+        Courses & <span>Certifications</span>
+    </h2>
+
+    <div class="grid">
+
+        <!-- 1. Agentic AI -->
+        <div class="card">
+            <img src="image/Pak Angels.png"
+                 alt="Agentic AI Certificate"
+                 class="certificate-img">
+
+            <h3>Agentic AI</h3>
+            <p>Completed through Aspire Pak Angels.</p>
+        </div>
+
+
+        <!-- 2. Basics of Python -->
+        <div class="card">
+            <img src="image/Uniathena.png"
+                 alt="Python Certificate"
+                 class="certificate-img">
+
+            <h3>Basics of Python</h3>
+            <p>Completed through UniAthena.</p>
+        </div>
+
+
+        <!-- 3. Introduction to AI -->
+        <div class="card">
+            <img src="image/Cisco.png"
+                 alt="Cisco AI Certificate"
+                 class="certificate-img">
+
+            <h3>Introduction to AI</h3>
+            <p>Completed through Cisco.</p>
+        </div>
+
+
+        <!-- 4. Prompt Engineering -->
+        <div class="card">
+            <img src="image/Ai Prompt.png"
+                 alt="Prompt Engineering Certificate"
+                 class="certificate-img">
+
+            <h3>Prompt Engineering</h3>
+            <p>Completed course with a Top 10 position.</p>
+            <span class="tag">Top 10 Achievement</span>
+        </div>
+
+
+        <!-- 5. Business Intelligence -->
+        <div class="card">
+            <img src="image/Sales Dashboard.png"
+                 alt="Business Intelligence Certificate"
+                 class="certificate-img">
+
+            <h3>Business Intelligence</h3>
+            <p>Practical dashboard development and data visualization.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CERTIFICATE IMAGE STYLING -->
+
+<style>
+
+.certificate-img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    background: #ffffff;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    padding: 5px;
+}
+
+</style>
+
+
+<!-- ACHIEVEMENTS -->
+
+<section>
+
+    <h2 class="heading">My <span>Achievements</span></h2>
+
+    <div class="achievement">
+        <h3>Top 10 – Prompt Engineering</h3>
+        <p>
+            Achieved a position among the Top 10
+            participants in a Prompt Engineering course.
+        </p>
+    </div>
+
+    <div class="achievement">
+        <h3>AI Project Development</h3>
+        <p>
+            Worked on practical AI projects including
+            FileFlow AI, AuraRing and HR Policy Assistant.
+        </p>
+    </div>
+
+    <div class="achievement">
+        <h3>Business Intelligence Projects</h3>
+        <p>
+            Created dashboards for data analysis,
+            visualization and reporting.
+        </p>
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+    <h2 class="heading">Get In <span>Touch</span></h2>
+
+    <p style="color:#aaa;margin-bottom:30px;">
+        Let's connect and explore new opportunities together.
+    </p>
+
+    <div class="contact-info">
+
+        <div class="contact-item">
+            <strong>Email Address</strong>
+            <p>
+                <a href="emanamna820@gmail.com">
+                    emanamna820@gmail.com
+                </a>
+            </p>
+        </div>
+
+        <div class="contact-item">
+            <strong>Phone Number</strong>
+            <p>+92-xxxxx</p>
+        </div>
+
+        <div class="contact-item">
+            <strong>Address</strong>
+            <p>kpk Bannu Township, Pakistan</p>
+        </div>
+
+        <div class="contact-item">
+            <strong>GitHub</strong>
+            <p>
+                <a href="YOUR_GITHUB_LINK"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Visit My GitHub
+                </a>
+            </p>
+        </div>
+
+        <div class="contact-item">
+            <strong>LinkedIn</strong>
+            <p>
+                <a href="https://www.linkedin.com/in/syeda-amna-eman-045480434?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Visit My LinkedIn
+                </a>
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+    <p>
+        © 2026 <span>Syeda Amna Eman</span>.
+        All Rights Reserved.
+    </p>
+    <p>Designed & Developed with HTML, CSS and JavaScript.</p>
+</footer>
+
+<script>
+
+const links = document.querySelectorAll("nav a");
+
+links.forEach(link => {
+    link.addEventListener("click", function() {
+        links.forEach(item => item.classList.remove("active"));
+        this.classList.add("active");
+    });
+});
+
+</script>
+
+</body>
+</html>
